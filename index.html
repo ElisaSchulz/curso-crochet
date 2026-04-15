@@ -170,9 +170,28 @@
 
     .video-placeholder {
       position: absolute; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #2d1b33 0%, #1a1a2e 100%);
-      color: rgba(255,255,255,0.5); font-size: 0.85rem; text-align: center; gap: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: #1a1a2e;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .video-placeholder:hover .play-btn-overlay {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 12px rgba(242,167,176,0.25);
+    }
+
+    .play-btn-overlay {
+      position: relative; z-index: 2;
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--rose);
+      color: white;
+      font-size: 28px;
+      display: flex; align-items: center; justify-content: center;
+      padding-left: 6px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .player-info { padding: 24px 28px 20px; }
@@ -366,9 +385,9 @@
   <div class="player-section">
     <div class="player-card">
       <div class="video-wrapper">
-        <div class="video-placeholder" id="videoPlaceholder">
-          <div style="font-size: 48px;">🧶</div>
-          <div>Selecione uma aula para começar</div>
+        <div class="video-placeholder" id="videoPlaceholder" onclick="playCurrentLesson()">
+          <img id="thumbImg" src="" alt="Thumbnail da aula" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+          <div class="play-btn-overlay">▶</div>
         </div>
         <iframe id="videoFrame" src="about:blank" title="Aula de Crochê"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -446,66 +465,66 @@
     {
       title: "Bem-vinda ao Crochê",
       sub: "Materiais e Como Começar",
-      videoId: "D6HgcnFp1Y8",
+      videoId: "wjoVxpJaGzE",
       desc: "Conheça os materiais essenciais, as agulhas e os fios que você vai precisar. Vamos entender como tudo funciona antes de colocar a mão na massa.",
-      materials: ["Agulha de crochê nº 4,0 mm", "Fio de algodão ou acrílico", "Tesoura pequena", "Agulha de lã para arrematar"],
-      pdfLink: ""
+      materials: ["Agulha de crochê nº 4,0 mm", "Linha de algodão 4 fios – Amigurumi ou Barroco"],
+      pdfLink: "https://drive.google.com/uc?export=download&id=14c_dEW0Uk5VSINrrsh3XcVtmHA3mArJt"
     },
     {
       title: "Nó Deslizante",
       sub: "Seu Primeiro Passo",
-      videoId: "",
+      videoId: "CkTDYHpFZq8",
       desc: "O nó deslizante é o ponto de partida de qualquer peça de crochê. Simples e rápido de aprender, você vai dominá-lo em minutos.",
-      materials: ["Agulha de crochê nº 4,0 mm", "Fio de algodão ou acrílico"],
-      pdfLink: ""
+      materials: ["Agulha de crochê nº 4,0 mm", "Linha de algodão 4 fios – Amigurumi ou Barroco"],
+      pdfLink: "https://drive.google.com/uc?export=download&id=146_UmEwGmyHRunseQzQX_idhBjL9bycz"
     },
     {
       title: "Ponto Corrente",
       sub: "A Base de Tudo",
-      videoId: "",
+      videoId: "9xrFRzCC3Q8",
       desc: "O ponto corrente (ou correntinha) é a base da maioria dos projetos de crochê. Vamos praticar até o movimento ficar natural e fluido.",
-      materials: ["Agulha de crochê nº 4,0 mm", "Fio de sua preferência"],
-      pdfLink: ""
+      materials: ["Agulha de crochê nº 4,0 mm", "Linha de algodão 4 fios – Amigurumi ou Barroco"],
+      pdfLink: "https://drive.google.com/uc?export=download&id=1DlwVkh-D1tG11yiF_sw6Khocm4ewswQR"
     },
     {
       title: "Ponto Baixo",
       sub: "O Ponto Mais Usado do Crochê",
-      videoId: "",
+      videoId: "wq5Ij15YKJ0",
       desc: "O ponto baixo é o mais utilizado no crochê. Com ele você já consegue fazer peças completas e bonitas. Vamos treinar bastante nesta aula.",
-      materials: ["Agulha de crochê nº 4,0 mm", "Fio de algodão ou acrílico"],
-      pdfLink: ""
+      materials: ["Agulha de crochê nº 4,0 mm", "Linha de algodão 4 fios – Amigurumi ou Barroco"],
+      pdfLink: "https://drive.google.com/uc?export=download&id=1K4xqknKA1_yayofm7qjWAqzUY1IpFHUC"
     },
     {
       title: "Ponto Alto",
       sub: "Mais Altura, Mais Possibilidades",
-      videoId: "",
+      videoId: "sVua6tdEZ0M",
       desc: "O ponto alto é mais alto que o baixo e cria uma textura mais aberta e delicada. Perfeito para peças mais leves como xales e sacolinhas.",
-      materials: ["Agulha de crochê nº 4,0 mm", "Fio de sua preferência"],
-      pdfLink: ""
+      materials: ["Agulha de crochê nº 4,0 mm", "Linha de algodão 4 fios – Amigurumi ou Barroco"],
+      pdfLink: "https://drive.google.com/uc?export=download&id=11HjSjs_2nPJus4n0iw9YuzutkJpcx7Bd"
     },
     {
       title: "Ponto Baixíssimo",
       sub: "Para Acabamentos Perfeitos",
-      videoId: "",
+      videoId: "iyid-MGy7ow",
       desc: "O ponto baixíssimo é essencial para arrematar e unir partes de uma peça com acabamento limpo e bonito.",
-      materials: ["Agulha de crochê nº 4,0 mm", "Fio de algodão ou acrílico"],
-      pdfLink: ""
+      materials: ["Agulha de crochê nº 4,0 mm", "Linha de algodão 4 fios – Amigurumi ou Barroco"],
+      pdfLink: "https://drive.google.com/uc?export=download&id=1aFvpS48NjV7d735bxxZ9c8ERC-lWQdsC"
     },
     {
       title: "Anel Mágico",
       sub: "Como Trabalhar em Redondo",
-      videoId: "",
+      videoId: "W7wNxoFhgY8",
       desc: "O anel mágico permite começar peças circulares sem deixar um buraco no centro. É a técnica usada em flores, bases de bolsas, chapéus e muito mais.",
-      materials: ["Agulha de crochê nº 4,0 mm", "Fio de algodão ou acrílico"],
-      pdfLink: ""
+      materials: ["Agulha de crochê nº 4,0 mm", "Linha de algodão 4 fios – Amigurumi ou Barroco"],
+      pdfLink: "https://drive.google.com/uc?export=download&id=1nNB_B5XQbaUbAvui0r2ZbCBa0cHQTIOf"
     },
     {
       title: "Pontos no Anel Mágico",
       sub: "Praticando em Redondo",
-      videoId: "",
+      videoId: "lpObS-2lQQA",
       desc: "Agora que você sabe fazer o anel mágico, vamos praticar inserindo os pontos aprendidos anteriormente e entender como funciona o crochê em redondo.",
-      materials: ["Agulha de crochê nº 4,0 mm", "Fio de algodão ou acrílico", "Marcador de pontos (opcional)"],
-      pdfLink: ""
+      materials: ["Agulha de crochê nº 4,0 mm", "Linha de algodão 4 fios – Amigurumi ou Barroco"],
+      pdfLink: "https://drive.google.com/uc?export=download&id=1xevFwK82PcM8p5IRQf8d8L5d1BAkvgOS"
     },
   ];
 
@@ -536,15 +555,21 @@
 
     const frame = document.getElementById('videoFrame');
     const placeholder = document.getElementById('videoPlaceholder');
+    const thumb = document.getElementById('thumbImg');
+
+    // Always show thumbnail first, play on click
+    frame.src = 'about:blank';
+    frame.style.display = 'none';
 
     if (l.videoId) {
-      frame.src = `https://www.youtube.com/embed/${l.videoId}?autoplay=1`;
-      frame.style.display = 'block';
-      placeholder.style.display = 'none';
-    } else {
-      frame.src = 'about:blank';
-      frame.style.display = 'none';
+      thumb.src = `https://img.youtube.com/vi/${l.videoId}/maxresdefault.jpg`;
+      thumb.style.display = 'block';
       placeholder.style.display = 'flex';
+    } else {
+      thumb.src = '';
+      thumb.style.display = 'none';
+      placeholder.style.display = 'flex';
+      placeholder.style.background = '#1a1a2e';
     }
 
     document.getElementById('currentNumber').textContent = `Aula ${index + 1} de ${lessons.length}`;
@@ -568,6 +593,16 @@
     buildList();
   }
 
+  function playCurrentLesson() {
+    const l = lessons[current];
+    if (!l.videoId) return;
+    const frame = document.getElementById('videoFrame');
+    const placeholder = document.getElementById('videoPlaceholder');
+    frame.src = `https://www.youtube.com/embed/${l.videoId}?autoplay=1`;
+    frame.style.display = 'block';
+    placeholder.style.display = 'none';
+  }
+
   function showTab(name, btn) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -576,6 +611,7 @@
   }
 
   buildList();
+  loadLesson(0); // carrega aula 1 automaticamente
 </script>
 </body>
 </html>
