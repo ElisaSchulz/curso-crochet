@@ -398,7 +398,9 @@
           <img id="thumbImg" src="" alt="Thumbnail da aula"
             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
             onerror="this.src=this.src.replace('maxresdefault','hqdefault')"/>
-          <div class="play-btn-overlay">▶</div>
+          <div class="play-btn-overlay">
+            <svg viewBox="0 0 24 24" fill="white" width="22" height="22" style="margin-left:3px"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
         </div>
         <iframe id="videoFrame" src="about:blank" title="Aula de Crochê"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -566,21 +568,24 @@
 
     const frame = document.getElementById('videoFrame');
     const placeholder = document.getElementById('videoPlaceholder');
-    const thumb = document.getElementById('thumbImg');
 
     // Always show thumbnail first, play on click
     frame.src = 'about:blank';
     frame.style.display = 'none';
 
     if (l.videoId) {
-      thumb.src = `https://img.youtube.com/vi/${l.videoId}/maxresdefault.jpg`;
-      thumb.style.display = 'block';
+      const img = document.getElementById('thumbImg');
+      // Try maxres first, then hq, then mq
+      img.src = `https://img.youtube.com/vi/${l.videoId}/hqdefault.jpg`;
+      img.style.display = 'block';
+      placeholder.style.background = '#1a1a2e';
       placeholder.style.display = 'flex';
     } else {
-      thumb.src = '';
-      thumb.style.display = 'none';
+      const img = document.getElementById('thumbImg');
+      img.src = '';
+      img.style.display = 'none';
+      placeholder.style.background = 'linear-gradient(135deg, #2d1b33 0%, #1a1a2e 100%)';
       placeholder.style.display = 'flex';
-      placeholder.style.background = '#1a1a2e';
     }
 
     document.getElementById('currentNumber').textContent = `Aula ${index + 1} de ${lessons.length}`;
