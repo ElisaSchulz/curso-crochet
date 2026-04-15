@@ -183,15 +183,24 @@
 
     .play-btn-overlay {
       position: relative; z-index: 2;
-      width: 72px; height: 72px;
+      width: 64px; height: 64px;
       border-radius: 50%;
       background: var(--rose);
       color: white;
-      font-size: 28px;
+      font-size: 24px;
       display: flex; align-items: center; justify-content: center;
-      padding-left: 6px;
+      padding-left: 5px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.4);
       transition: transform 0.2s, box-shadow 0.2s;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .play-btn-overlay {
+        width: 48px; height: 48px;
+        font-size: 18px;
+        padding-left: 4px;
+      }
     }
 
     .player-info { padding: 24px 28px 20px; }
@@ -386,7 +395,9 @@
     <div class="player-card">
       <div class="video-wrapper">
         <div class="video-placeholder" id="videoPlaceholder" onclick="playCurrentLesson()">
-          <img id="thumbImg" src="" alt="Thumbnail da aula" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+          <img id="thumbImg" src="" alt="Thumbnail da aula"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
+            onerror="this.src=this.src.replace('maxresdefault','hqdefault')"/>
           <div class="play-btn-overlay">▶</div>
         </div>
         <iframe id="videoFrame" src="about:blank" title="Aula de Crochê"
